@@ -1,0 +1,117 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #d59595;
+    font-family: "David Libre";
+    text-align:center;
+}
+#article,
+#aside,
+#footer,
+#header,
+#nav {
+    padding:25px;
+}
+#header{
+    background-color:blanchedalmond;
+}
+#nav{
+    background-color: #e8dede;
+}
+#aside {
+    display: flex;
+
+}
+.kedvencek {
+    background-color: #ffffff;
+    flex: 1 1 auto;
+    color: black;
+    border-width: 3px;
+    border-style: solid;
+    border-color: brown;
+    border-radius: 10px;
+}
+
+#main{
+    text-align: left;
+}
+#nav {
+    display: flex;
+}
+#nav a {
+    flex: 1 1 auto;
+    text-decoration: none;
+    color: black;
+}
+@media screen and (min-width: 800px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        max-width: 1500px;
+        margin: auto;
+    }
+    #main {
+        display: flex;
+    }
+    #nav,
+    #header {
+        order: -1;
+    }
+    #aside {
+
+        flex: 1 1 100%;
+    }
+    #img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+h1 {
+    color: black;
+    text-align: center;
+    font-size: 60px;
+    font-family: Alef;
+}
+
+h2 {
+    font-size: 30px;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: blanchedalmond;
+    font-family: "Alef";
+}
+
+h3 {
+    font-family: "Alef";
+    text-align: center;
+}
+h3::first-letter {
+    font-size: 25px;
+}
+
+span {
+    font-weight: bold;
+}
+
+ul, li {
+    margin: 5px;
+    text-align: left;
+}
+
+a:hover {
+    font-weight: bold;
+    color: brown;
+}
+a {
+    color: black;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+}

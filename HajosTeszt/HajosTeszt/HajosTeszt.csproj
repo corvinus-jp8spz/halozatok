@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\profil.jpg" />
+    <None Include="wwwroot\profil.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
