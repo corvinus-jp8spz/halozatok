@@ -1,5 +1,5 @@
 ﻿var kérdések;
-var kérdésSzáma = 0;
+var kérdésSzám = 0;
 
 window.onload =  () => {
     letöltés();
@@ -21,7 +21,7 @@ function kérdésMegjelenítés(k) {
     document.getElementById("válasz1").innerHTML = kérdések[k].answer1;
     document.getElementById("válasz2").innerHTML = kérdések[k].answer2;
     document.getElementById("válasz3").innerHTML = kérdések[k].answer3;
-    document.getElementById("kép1").src = "https://szoft1.comeback.hu/hajo/" + kérdések[k].image;
+    document.getElementById("kép1").src = "https://szoft1.comeback.hu/hajo/" + kérdések[kérdésSzám].image;
     válasz1.classList.remove("jo", "rossz");
     válasz2.classList.remove("jo", "rossz");
     válasz3.classList.remove("jo", "rossz");
@@ -29,28 +29,26 @@ function kérdésMegjelenítés(k) {
 }
 
 function Előre() {
-    if (kérdésSzáma = kérdések.length - 1) {
-        kérdésSzáma = 0;
-        letöltés();
+    kérdésSzám = (kérdésSzám + 1) % kérdések.length
+    kérdésMegjelenítés(kérdésSzám);
+    }
+
+function Vissza() {
+    if (kérdésSzám == 0) {
+        kérdésSzám=kérdések.length-1;
+        kérdésMegjelenítés(kérdésSzám);
+
 
     }
     else {
-        kérdésSzáma++;
-        letöltés();
-    }
-}
-function Vissza() {
-    if (kérdésSzáma == 0) {
-        kérdékérdésSzáma=kérdések.length-1;
-        letöltés();
-    }
-    else {
-        kérdésSzáma--;
-        letöltés();
+        kérdésSzám = kérdésSzám - 1;
+        kérdésMegjelenítés(kérdésSzám);
+
+
     }
 }
 function színez(n) {
-    if (n == kérdések[kérdésSzáma].correctAnswer) {
+    if (n == kérdések[kérdésSzám].correctAnswer) {
         document.getElementById("válasz" + n).classList.add("jo");
     }
     else {
