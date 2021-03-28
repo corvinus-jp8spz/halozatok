@@ -5,7 +5,7 @@
     <title>Hajós teszt</title>
     <link rel="stylesheet" href="hajo.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="hetedik.js"></script>
 </head>
 <body>
     <div id="külső">
@@ -13,18 +13,18 @@
             Kérdés szövege
         </div>
         <div id="középső" class="col-12 col-t-12">
-            <div id="válaszok">
-                <div id="válasz1" class="kerdes kattintható">Válasz 1</div>
-                <div id="válasz2" class="kerdes kattintható jo">Válasz 2</div>
-                <div id="válasz3" class="kerdes kattintható rossz">Válasz 3</div>
+            <div id="válaszok"col-4 col-t-12">
+                <div id="válasz1" onclick="színez(1)" class="kerdes kattintható">Válasz1</div>
+                <div id="válasz2" onclick="színez(2)" class="kerdes kattintható">Válasz2</div>
+                <div id="válasz3" onclick="színez(3)" class="kerdes kattintható">Válasz3</div>
             </div>
-            <div id="kép">
+            <div id="kép" class="col-8 col-t-12">
                 <img id="kép1" src="https://szoft1.comeback.hu/hajo/teszt-0050.jpg" />
             </div>
         </div>
         <div id="vezérlő" class="col-12 col-t-12">
-            <div class="gomb kattintható">Vissza</div>
-            <div class="gomb kattintható">Előre</div>
+            <div onclick="Vissza()" class="gomb kattintható">Vissza</div>
+            <div onclick="Előre()" class="gomb kattintható">Előre</div>
         </div>
     </div>
 </body>

@@ -20,7 +20,6 @@ div, html, body {
     color: black;
     font-size: 40px;
     font-weight: 400;
-    background-color: #c37a7a;
     border-top-left-radius: 15px;
     border-top-right-radius: 25px;
     padding: 20px;
@@ -81,8 +80,8 @@ div, html, body {
 }
 
 .kattintható:hover {
-    background-color: #e95858;
     color: black;
+    background-color: #e95858;
     font-weight: bold;
 }
 
