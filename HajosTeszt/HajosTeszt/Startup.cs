@@ -16,6 +16,7 @@ namespace HajosTeszt
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -26,23 +27,25 @@ namespace HajosTeszt
                 app.UseDeveloperExceptionPage();
             }
 
-            DefaultFilesOptions options = new DefaultFilesOptions();
-            options.DefaultFileNames.Clear();
-            options.DefaultFileNames.Add("hajo.html");
-            app.UseDefaultFiles(options);
-            app.UseStaticFiles();
+            //DefaultFilesOptions options = new DefaultFilesOptions();
+            //options.DefaultFileNames.Clear();
+            //options.DefaultFileNames.Add("TesztController.cs");
             app.UseHttpsRedirection();
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseRouting();
 
-           //app.UseEndpoints(endpoints =>
+            //app.UseEndpoints(endpoints =>
             //{
-              //  endpoints.MapGet("/", async context =>
-                //{
-                  //  await context.Response.WriteAsync("Hello World!");
-                //});
-           // });
+            //  endpoints.MapGet("/", async context =>
+            //{
+            //  await context.Response.WriteAsync("Hello World!");
+            //});
+            // });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }
