@@ -47,8 +47,8 @@ div, html, body {
     justify-content: space-between;
 }
 
-#kép {
-    display: block;
+#kép1 {
+    display: none;
     height:auto;
     max-width: 100%;
     overflow: hidden;
