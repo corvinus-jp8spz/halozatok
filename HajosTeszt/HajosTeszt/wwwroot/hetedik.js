@@ -1,7 +1,11 @@
 ﻿var kérdés;
 var kérdésSzám = 1;
 var aktuáliskérdés;
-
+var hotList = [];           //Az éppen gyakoroltatott kérdések listája 
+var questionsInHotList = 3; //Ez majd 7 lesz, teszteléshez jobb a 3. 
+var displayedQuestion;      //A hotList-ből éppen ez a kérdés van kint
+var numberOfQuestions;      //Kérdések száma a teljes adatbázisban
+var nextQuestion = 1;       //A következő kérdés száma a teljes listában
 window.onload = () => {
     letöltés();
     kérdésBetöltés(kérdésSzám)
@@ -12,18 +16,53 @@ function letöltés() {
         .then(response => response.json())
         .then(data => { kérdésSzám = data.length });
 }
-function kérdésBetöltés(id) {
-    fetch(`/questions/${id}`)
-        .then(response => {
-            if (!response.ok) {
-                console.error(`Hibás válasz: ${response.status}`)
+function kérdésBetöltés(questionNumber, destination) {
+    fetch(`/questions/${questionNumber}`)
+        .then(
+            result => {
+                if (!result.ok) {
+                    console.error(`Hibás letöltés: ${response.status}`)
+                }
+                else {
+                    return result.json()
+                }
             }
-            else {
-                return response.json()
+        )
+        .then(
+            q => {
+                hotList[destination].question = q;
+                hotList[destination].goodAnswers = 0;
+                console.log(`A ${questionNumber}. kérdés letöltve a hot list ${destination}. helyére`)
             }
-        })
-        .then(data => kérdésMegjelenítés(data));
-} 
+        );
+}
+//function kérdésBetöltés(id) {
+  //  fetch(`/questions/${id}`)
+    //    .then(response => {
+      //      if (!response.ok) {
+        //        console.error(`Hibás válasz: ${response.status}`)
+          //  }
+            //else {
+              //  return response.json()
+            //}
+        //})
+        //.then(data => kérdésMegjelenítés(data));
+//} 
+function init() {
+    for (var i = 0; i < questionsInHotList; i++) {
+        let q = {
+            question: {},
+            goodAnswers: 0
+        }
+        hotList[i] = q;
+    }
+
+    //Első kérdések letöltése
+    for (var i = 0; i < questionsInHotList; i++) {
+        kérdésBetöltés(nextQuestion, i);
+        nextQuestion++;
+    }
+}
 function letöltésBefejeződött(d) {
     console.log("Sikeres letöltés")
     console.log(d)
